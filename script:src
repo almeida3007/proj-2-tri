@@ -1,0 +1,9 @@
+<script src="script.js"></script>
+const caixaPrincipal = document.querySelector(".caixa-principal");
+{
+    enunciado: "Pergunta 1",
+    alternativas: [
+        "Alternativa 1",
+        "Aternativa 2"
+    ]
+}

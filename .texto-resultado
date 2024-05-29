@@ -1,0 +1,1 @@
+const textoResultado = document.querySelector(".texto-resultado");
