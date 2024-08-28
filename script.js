@@ -6,12 +6,18 @@ const textoResultado = document.querySelector(".texto-resultado");
 
 const perguntas = [
     {
-        enunciado: "Assim que saiu da escola você se depara com uma nova tecnologia, um chat que consegue responder todas as dúvidas que uma pessoa pode ter, ele também gera imagens e áudios hiper-realistas. Qual o primeiro pensamento?",
+        enunciado: "Assim que saiu da escola você se depara com uma nova tecnologia"
         alternativas: [
-            "Isso é assustador!",
-           "Isso é maravilhoso!"
+            {
+                texto: "Isso é assustador!",
+                afirmacao: "afirmacao"
+            },
+            {
+                texto: "Isso é maravilhoso!",
+                afirmacao: "afirmacao"
+            }
         ]
-    },
+},
     {
         enunciado: "Com a descoberta desta tecnologia, chamada Inteligência Artificial, uma professora de tecnologia da escola decidiu fazer uma sequência de aulas sobre esta tecnologia. No fim de uma aula ela pede que você escreva um trabalho sobre o uso de IA em sala de aula. Qual atitude você toma?",
         alternativas: [
@@ -51,12 +57,13 @@ function mostraPergunta() {
     mostraAlternativas();
 }
 
-function mostraAlternativas() {
-    for(const alternativa of perguntaAtual.alternativas) {
-        const botaoAlternativas = document.createElement("button");
-        botaoAlternativa.textContent = alternativa;
-        caixaAlternativas.appendChild(botaoAlternativas);
+function mostraAlternativas(){
+    for(const alternativa of perguntaAtual.alternativas){
+            const botaoAlternativas = document.createElement("button");
+            botaoAlternativas.textContent = alternativa.texto;
+            botaoAlternativas.addEventListener("click", function(){
+                atual++;
+                mostraPergunta();
+            })
+            caixaAlternativas.appendChild(botaoAlternativas);
     }
-}
-
-mostraPergunta();
